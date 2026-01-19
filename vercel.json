@@ -1,5 +1,15 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "buildCommand": "npm run build:client",
+  "outputDirectory": "dist/spa",
+  "framework": "vite"
 }
