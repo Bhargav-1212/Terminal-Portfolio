@@ -66,7 +66,7 @@ export default function Index() {
           >
             {isDark ? <Sun size={18} strokeWidth={1.5} /> : <Moon size={18} strokeWidth={1.5} />}
           </button>
-          <span className="flex-1 text-center">https://bhargav.dev</span>
+          <span className="flex-1 text-center">https://bhargav-terminal-portfolio.vercel.app/</span>
           <span id="current-time" className="min-w-fit">
             {new Date().toLocaleString("en-US", {
               month: "short",
