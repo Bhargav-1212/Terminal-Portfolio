@@ -66,7 +66,7 @@ export default function Index() {
           >
             {isDark ? <Sun size={18} strokeWidth={1.5} /> : <Moon size={18} strokeWidth={1.5} />}
           </button>
-          <span className="flex-1 text-center">https://bhargav-terminal-portfolio.vercel.app/</span>
+          <span className="flex-1 text-center"></span>
           <span id="current-time" className="min-w-fit">
             {new Date().toLocaleString("en-US", {
               month: "short",
@@ -80,7 +80,7 @@ export default function Index() {
         </div>
 
         {/* ASCII art title with typing animation */}
-        <div className="text-sm md:text-base leading-none font-bold overflow-hidden min-h-[120px]">
+        <div className="text-[9px] sm:text-xs md:text-base leading-none font-bold overflow-x-auto min-h-[120px] scrollbar-hide">
           <pre
             style={{
               lineHeight: "0.85",

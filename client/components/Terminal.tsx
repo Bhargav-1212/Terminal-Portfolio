@@ -230,7 +230,7 @@ export const Terminal: React.FC<TerminalProps> = ({
 
       {/* ShutdownScreen removed from here when shutting_down to keep logs visible */}
 
-      <div className={`relative flex-1 overflow-y-auto p-6 md:p-8 transition-opacity duration-500 no-scrollbar ${powerState !== 'on' && powerState !== 'booting' && powerState !== 'shutting_down' ? 'opacity-0' : 'opacity-100'}`} ref={terminalRef}>
+      <div className={`relative flex-1 overflow-y-auto p-4 md:p-8 transition-opacity duration-500 no-scrollbar ${powerState !== 'on' && powerState !== 'booting' && powerState !== 'shutting_down' ? 'opacity-0' : 'opacity-100'}`} ref={terminalRef}>
         {children}
 
         {lines.map((line, i) => (
@@ -248,7 +248,8 @@ export const Terminal: React.FC<TerminalProps> = ({
 
         {powerState === 'on' && (
           <div className="flex items-center gap-2 pt-2">
-            <span className="font-bold">{username}@{hostname}:~$</span>
+            <span className="font-bold whitespace-nowrap md:whitespace-normal hidden md:inline">{username}@{hostname}:~$</span>
+            <span className="font-bold whitespace-nowrap md:hidden">~$</span>
             <input
               ref={inputRef}
               type="text"
@@ -264,7 +265,7 @@ export const Terminal: React.FC<TerminalProps> = ({
       </div>
 
       {footer && powerState === 'on' && (
-        <div className="border-t border-foreground p-6 md:p-8 text-center text-xs bg-background">
+        <div className="border-t border-foreground p-4 md:p-8 text-center text-xs bg-background">
           {footer}
         </div>
       )}
