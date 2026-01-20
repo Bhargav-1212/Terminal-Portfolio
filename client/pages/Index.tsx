@@ -15,6 +15,15 @@ export default function Index() {
   const [isDark, setIsDark] = useState(false);
   const [displayedAscii, setDisplayedAscii] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [currentTime, setCurrentTime] = useState<Date | null>(null);
+
+  useEffect(() => {
+    setCurrentTime(new Date());
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -68,14 +77,14 @@ export default function Index() {
           </button>
           <span className="flex-1 text-center"></span>
           <span id="current-time" className="min-w-fit">
-            {new Date().toLocaleString("en-US", {
+            {currentTime ? currentTime.toLocaleString("en-US", {
               month: "short",
               day: "numeric",
               year: "numeric",
               hour: "2-digit",
               minute: "2-digit",
               second: "2-digit",
-            })}
+            }) : "Loading..."}
           </span>
         </div>
 
@@ -116,27 +125,7 @@ export default function Index() {
         )}
       </div>
 
-      {typeof window !== "undefined" && (
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              setInterval(() => {
-                const el = document.getElementById('current-time');
-                if (el) {
-                  el.textContent = new Date().toLocaleString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit'
-                  });
-                }
-              }, 1000);
-            `,
-          }}
-        />
-      )}
+
     </Terminal>
   );
 }

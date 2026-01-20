@@ -166,7 +166,7 @@ export const educationCommand: Command = {
         "║              EDUCATION                     ║",
         "╚════════════════════════════════════════════╝",
         "",
-        "B.Tech CSE – VIT AP (CGPA 7.52)",
+        "B.Tech CSE – VIT AP (CGPA 7.69)",
         "FIITJEE – Higher Secondary (77.5%)",
         "Takshasila Public School – Secondary",
     ]
